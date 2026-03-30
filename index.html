@@ -1,157 +1,424 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maral — Premium Linen Wear</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maral — Best Quality Garments for Men & Women | Vastrapur, Ahmedabad</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0f0f0f;
+  --off-white:#f8f5f0;
+  --warm:#e8ddd0;
+  --cream:#F9F5EF;
+  --accent:#c8333a;
+  --accent-dark:#a82a30;
+  --gold:#d4a843;
+  --gold-dark:#c09a30;
+  --mid:#7a7368;
+  --light:#cfc8be;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--off-white);color:var(--black);overflow-x:hidden;font-weight:300}
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:300;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.4rem 3.5rem;
+  transition:background 0.5s,padding 0.3s;
+}
+nav.scrolled{background:rgba(10,10,10,0.93);backdrop-filter:blur(16px);padding:1rem 3.5rem}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:#fff;text-decoration:none;letter-spacing:0.12em;text-transform:uppercase}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{text-decoration:none;color:rgba(255,255,255,0.75);font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:400;transition:color 0.2s}
+.nav-links a:hover{color:#fff}
+.nav-icons{display:flex;gap:1.2rem;align-items:center}
+.nav-icons svg{width:19px;height:19px;stroke:rgba(255,255,255,0.75);fill:none;stroke-width:1.4;cursor:pointer;transition:stroke 0.2s}
+.nav-icons svg:hover{stroke:#fff}
 
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: #f8f5f0;
-      color: #0f0f0f;
-    }
+/* HERO */
+.hero{position:relative;width:100%;height:100vh;min-height:620px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.hero-video{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;z-index:0}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.12) 35%,rgba(0,0,0,0.45) 65%,rgba(0,0,0,0.82) 100%)}
+.hero-vignette{position:absolute;inset:0;z-index:2;box-shadow:inset 0 0 120px rgba(0,0,0,0.45);pointer-events:none}
+.hero-content{position:relative;z-index:3;text-align:center;padding:0 2rem;display:flex;flex-direction:column;align-items:center}
 
-    /* NAV */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      padding: 1rem 3rem;
-      background: rgba(15,15,15,0.9);
-      display: flex;
-      justify-content: space-between;
-      color: white;
-      z-index: 100;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      letter-spacing: 0.15em;
-      font-size: 0.75rem;
-    }
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
-    /* HERO */
-    .hero {
-      position: relative;
-      height: 100vh;
-      overflow: hidden;
-    }
-    .hero img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.65));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-    }
-    .overlay h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 7vw, 6rem);
-    }
+.hero-eyebrow{font-size:0.65rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;font-weight:400;animation:fadeUp 1s 0.3s ease both}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(5rem,12vw,10.5rem);font-weight:300;color:#fff;line-height:0.9;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.6rem;animation:fadeUp 1.1s 0.5s ease both;text-shadow:0 4px 40px rgba(0,0,0,0.35)}
+.hero-subtitle{font-family:'Cormorant Garamond',serif;font-size:clamp(0.9rem,2vw,1.3rem);font-weight:300;font-style:italic;color:rgba(255,255,255,0.65);letter-spacing:0.2em;margin-bottom:2rem;animation:fadeUp 1s 0.7s ease both}
+.hero-divider{width:60px;height:0.5px;background:rgba(255,255,255,0.3);margin:0 auto 2rem;animation:fadeIn 1s 0.9s ease both}
+.hero-badges{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem;animation:fadeUp 1s 1s ease both}
+.hero-badge{background:rgba(255,255,255,0.08);border:0.5px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.8);padding:0.38rem 1rem;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;font-weight:400;backdrop-filter:blur(10px)}
+.hero-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeUp 1s 1.1s ease both}
+.btn-primary{background:var(--accent);color:#fff;padding:1rem 2.8rem;font-family:'Jost',sans-serif;font-size:0.7rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:background 0.25s,transform 0.2s}
+.btn-primary:hover{background:var(--accent-dark);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:#fff;padding:1rem 2.8rem;font-family:'Jost',sans-serif;font-size:0.7rem;font-weight:300;letter-spacing:0.22em;text-transform:uppercase;border:1px solid rgba(255,255,255,0.4);cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.25s}
+.btn-ghost:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.7)}
 
-    /* COLLECTION */
-    section {
-      padding: 5rem 3rem;
-    }
-    h2 {
-      font-family: 'Playfair Display', serif;
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-    }
-    .card {
-      position: relative;
-      overflow: hidden;
-    }
-    .card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .5s;
-    }
-    .card:hover img {
-      transform: scale(1.05);
-    }
-    .label {
-      position: absolute;
-      bottom: 0;
-      background: rgba(15,15,15,0.6);
-      color: white;
-      padding: 1rem;
-      width: 100%;
-    }
+.hero-location{position:absolute;bottom:2.5rem;left:3.5rem;z-index:3;animation:fadeUp 1s 1.3s ease both}
+.location-inner{display:flex;align-items:center;gap:0.7rem}
+.location-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.5)}}
+.location-text{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:400}
 
-    footer {
-      background: #0f0f0f;
-      color: #aaa;
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.75rem;
-    }
-  </style>
+.hero-scroll{position:absolute;bottom:2.5rem;right:3.5rem;z-index:3;display:flex;flex-direction:column;align-items:center;gap:0.5rem;animation:fadeUp 1s 1.4s ease both}
+.scroll-label{font-size:0.55rem;letter-spacing:0.35em;text-transform:uppercase;color:rgba(255,255,255,0.38);writing-mode:vertical-rl}
+.scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,rgba(255,255,255,0.38),transparent);animation:scrollPulse 2.2s ease infinite}
+@keyframes scrollPulse{0%,100%{opacity:0.3;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.2)}}
+
+/* TICKER */
+.ticker{background:var(--accent);padding:0.75rem 0;overflow:hidden}
+.ticker-track{display:flex;gap:3rem;animation:ticker 25s linear infinite;white-space:nowrap}
+.ticker-track span{font-size:0.65rem;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.88);font-weight:400;flex-shrink:0}
+.ticker-dot{color:rgba(255,255,255,0.38) !important}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+.section{padding:6rem 5rem}
+.s-label{font-size:0.62rem;letter-spacing:0.38em;text-transform:uppercase;color:var(--accent);margin-bottom:0.8rem;font-weight:500}
+.s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3.8vw,3.2rem);font-weight:300;color:var(--black);line-height:1.1;margin-bottom:1rem}
+
+/* STOREFRONT */
+.storefront{display:grid;grid-template-columns:1fr 1fr;min-height:560px}
+.sf-img{position:relative;overflow:hidden}
+.sf-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.7s ease}
+.sf-img:hover img{transform:scale(1.04)}
+.sf-right{background:var(--black);padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center}
+.sf-right .s-label{color:var(--gold)}
+.sf-right .s-title{color:var(--off-white)}
+.sf-desc{font-size:0.88rem;color:rgba(255,255,255,0.45);line-height:1.95;margin-bottom:2.5rem;max-width:400px}
+.sf-stats{display:flex;gap:3rem;margin-bottom:3rem;flex-wrap:wrap}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);line-height:1;margin-bottom:0.25rem;font-weight:300}
+.stat-lbl{font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.3)}
+.btn-gold{background:var(--gold);color:var(--black);padding:0.95rem 2.2rem;font-size:0.68rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;border:none;cursor:pointer;width:fit-content;text-decoration:none;display:inline-block;transition:background 0.2s,transform 0.2s}
+.btn-gold:hover{background:var(--gold-dark);transform:translateY(-2px)}
+
+/* INFO STRIP */
+.info-strip{display:grid;grid-template-columns:repeat(4,1fr);background:var(--cream);border-top:1px solid rgba(180,165,150,0.25);border-bottom:1px solid rgba(180,165,150,0.25)}
+.info-block{padding:2.5rem 2rem;border-right:1px solid rgba(180,165,150,0.25);display:flex;align-items:flex-start;gap:1rem}
+.info-block:last-child{border-right:none}
+.info-icon{width:40px;height:40px;flex-shrink:0;background:var(--black);display:flex;align-items:center;justify-content:center}
+.info-icon svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:1.4}
+.info-title{font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--black);margin-bottom:0.3rem}
+.info-text{font-size:0.77rem;color:var(--mid);line-height:1.65}
+
+/* PRODUCTS */
+.products-section{background:var(--warm)}
+.products-dark{background:var(--off-white)}
+.products-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:1rem}
+.view-all{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color 0.2s;padding-bottom:2.8rem}
+.view-all:hover{color:var(--accent)}
+.products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+.product-card{cursor:pointer}
+.product-img{position:relative;overflow:hidden;aspect-ratio:3/4;margin-bottom:0.9rem;background:#ddd5c8}
+.product-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.55s ease}
+.product-card:hover .product-img img{transform:scale(1.07)}
+.prod-overlay{position:absolute;inset:0;background:rgba(15,15,15,0);display:flex;align-items:center;justify-content:center;transition:background 0.3s}
+.product-card:hover .prod-overlay{background:rgba(15,15,15,0.28)}
+.overlay-btn{background:rgba(249,245,239,0.93);color:var(--black);padding:0.6rem 1.5rem;font-family:'Jost',sans-serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;border:none;cursor:pointer;opacity:0;transform:translateY(10px);transition:opacity 0.3s,transform 0.3s}
+.product-card:hover .overlay-btn{opacity:1;transform:translateY(0)}
+.ptag{position:absolute;top:0.75rem;left:0.75rem;font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.22rem 0.6rem;font-weight:500;font-family:'Jost',sans-serif}
+.ptag-men{background:var(--black);color:#fff}
+.ptag-women{background:var(--accent);color:#fff}
+.ptag-new{background:var(--gold);color:var(--black)}
+.wish-btn{position:absolute;top:0.75rem;right:0.75rem;width:32px;height:32px;background:rgba(249,245,239,0.88);border:0.5px solid rgba(180,165,150,0.3);display:flex;align-items:center;justify-content:center;cursor:pointer}
+.wish-btn svg{width:14px;height:14px;stroke:var(--mid);fill:none;stroke-width:1.5;transition:stroke 0.2s,fill 0.2s}
+.wish-btn:hover svg{stroke:#d4a49a;fill:#d4a49a}
+.product-cat{font-size:0.62rem;color:var(--mid);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.25rem}
+.product-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--black);font-weight:400}
+
+/* LOOKBOOK */
+.lookbook{display:grid;grid-template-columns:1.1fr 0.9fr;gap:0.4rem;background:var(--black)}
+.lb-item{position:relative;overflow:hidden;cursor:pointer}
+.lb-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.65s ease;filter:brightness(0.85)}
+.lb-item:hover img{transform:scale(1.05);filter:brightness(1)}
+.lb-label{position:absolute;bottom:0;left:0;right:0;padding:3rem 2rem 1.8rem;background:linear-gradient(transparent,rgba(0,0,0,0.72));font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:#fff;font-weight:300;font-style:italic;letter-spacing:0.05em;opacity:0;transform:translateY(10px);transition:opacity 0.35s,transform 0.35s}
+.lb-item:hover .lb-label{opacity:1;transform:translateY(0)}
+.lb-stack{display:grid;gap:0.4rem}
+.lb-stack .lb-item img{aspect-ratio:16/10}
+
+/* GALLERY */
+.gallery-section{padding:6rem 5rem;background:var(--black)}
+.gallery-section .s-label{color:var(--gold)}
+.gallery-section .s-title{color:var(--off-white);margin-bottom:3rem}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.4rem}
+.gallery-item{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:1}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.55s ease;filter:brightness(0.78)}
+.gallery-item:hover img{transform:scale(1.08);filter:brightness(1)}
+.gallery-item::after{content:'';position:absolute;inset:0;background:rgba(200,51,58,0);transition:background 0.3s}
+.gallery-item:hover::after{background:rgba(200,51,58,0.15)}
+
+/* NEWSLETTER */
+.newsletter{background:var(--accent);padding:5.5rem 5rem;text-align:center}
+.nl-tag{font-size:0.62rem;letter-spacing:0.38em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:0.8rem;display:block}
+.nl-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,2.8rem);color:#fff;font-weight:300;margin-bottom:0.7rem}
+.nl-sub{font-size:0.85rem;color:rgba(255,255,255,0.65);margin-bottom:2.5rem}
+.nl-form{display:flex;max-width:480px;margin:0 auto;border:0.5px solid rgba(255,255,255,0.45)}
+.nl-input{flex:1;padding:0.95rem 1.3rem;background:rgba(255,255,255,0.08);border:none;color:#fff;font-family:'Jost',sans-serif;font-size:0.85rem;outline:none}
+.nl-input::placeholder{color:rgba(255,255,255,0.4)}
+.nl-btn{background:var(--black);color:#fff;padding:0.95rem 1.8rem;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;font-weight:500;transition:background 0.2s}
+.nl-btn:hover{background:#222}
+
+/* FOOTER */
+footer{background:var(--black);padding:5rem 5rem 2.5rem;border-top:1px solid rgba(255,255,255,0.05)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:2rem}
+.f-logo{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:#fff;font-weight:300;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1rem;display:block}
+.f-desc{font-size:0.8rem;color:rgba(255,255,255,0.32);line-height:1.9;max-width:240px;margin-bottom:1.3rem}
+.f-address{font-size:0.78rem;color:rgba(255,255,255,0.4);line-height:1.75;font-style:normal;margin-bottom:1.3rem}
+.f-address strong{color:rgba(255,255,255,0.68);font-weight:500}
+.f-social{display:flex;gap:0.7rem}
+.f-social-btn{width:36px;height:36px;border:0.5px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color 0.2s,background 0.2s;text-decoration:none}
+.f-social-btn:hover{border-color:var(--accent);background:rgba(200,51,58,0.15)}
+.f-social-btn svg{width:14px;height:14px;stroke:rgba(255,255,255,0.42);fill:none;stroke-width:1.5}
+.f-col-title{font-size:0.6rem;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:1.3rem;font-weight:500}
+.f-links{list-style:none}
+.f-links li{margin-bottom:0.65rem}
+.f-links a{font-size:0.8rem;color:rgba(255,255,255,0.28);text-decoration:none;transition:color 0.2s}
+.f-links a:hover{color:var(--gold)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem}
+.f-copy{font-size:0.7rem;color:rgba(255,255,255,0.18);letter-spacing:0.05em}
+.f-tags{display:flex;gap:0.5rem}
+.f-tag{font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.5rem;border:0.5px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.18)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){.products-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+  .hero-location{left:1.5rem;bottom:2rem}
+  .hero-scroll{right:1.5rem;bottom:2rem}
+  .section{padding:3.5rem 1.5rem}
+  .storefront{grid-template-columns:1fr}
+  .sf-right{padding:3rem 1.5rem}
+  .info-strip{grid-template-columns:1fr 1fr}
+  .info-block:nth-child(2){border-right:none}
+  .products-grid{grid-template-columns:repeat(2,1fr)}
+  .lookbook{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-section{padding:3.5rem 1.5rem}
+  .newsletter{padding:3.5rem 1.5rem}
+  footer{padding:3.5rem 1.5rem 2rem}
+  .footer-top{grid-template-columns:1fr 1fr;gap:2rem}
+}
+</style>
 </head>
-
 <body>
 
-<nav>
-  <strong>Maral</strong>
-  <span>Linen Collections</span>
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">Maral</a>
+  <ul class="nav-links">
+    <li><a href="#women">Women</a></li>
+    <li><a href="#men">Men</a></li>
+    <li><a href="#lookbook">Lookbook</a></li>
+    <li><a href="#store">Our Store</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-icons">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+  </div>
 </nav>
 
-<div class="hero">
-  <img src="images/hero.jpg">
-  <div class="overlay">
-    <div>
-      <h1>Maral</h1>
-      <p>Premium Linen · Men & Women</p>
+<!-- HERO WITH VIDEO -->
+<div class="hero" id="home">
+  <video class="hero-video" autoplay muted loop playsinline poster="images/front1.jpg" preload="auto">
+    <source src="images/hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-vignette"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Vastrapur &nbsp;·&nbsp; Ahmedabad &nbsp;·&nbsp; Gujarat</span>
+    <h1 class="hero-title">Maral</h1>
+    <div class="hero-subtitle">The Clothing Store</div>
+    <div class="hero-divider"></div>
+    <div class="hero-badges">
+      <div class="hero-badge">100% Cotton</div>
+      <div class="hero-badge">Men &amp; Women</div>
+      <div class="hero-badge">Export Quality</div>
+      <div class="hero-badge">Best Price</div>
     </div>
+    <div class="hero-ctas">
+      <a href="#women" class="btn-primary">Shop Collection</a>
+      <a href="#store" class="btn-ghost">Visit Our Store</a>
+    </div>
+  </div>
+  <div class="hero-location">
+    <div class="location-inner">
+      <div class="location-dot"></div>
+      <span class="location-text">Vastrapur, Ahmedabad</span>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span class="scroll-label">Scroll</span>
   </div>
 </div>
 
-<section>
-  <h2>Our Collection</h2>
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>100% Cotton Garments</span><span class="ticker-dot">✦</span>
+    <span>Export Quality</span><span class="ticker-dot">✦</span>
+    <span>Men &amp; Women</span><span class="ticker-dot">✦</span>
+    <span>Best Quality · Best Brands · Best Price</span><span class="ticker-dot">✦</span>
+    <span>Vastrapur, Ahmedabad</span><span class="ticker-dot">✦</span>
+    <span>New Arrivals In Store</span><span class="ticker-dot">✦</span>
+    <span>100% Cotton Garments</span><span class="ticker-dot">✦</span>
+    <span>Export Quality</span><span class="ticker-dot">✦</span>
+    <span>Men &amp; Women</span><span class="ticker-dot">✦</span>
+    <span>Best Quality · Best Brands · Best Price</span><span class="ticker-dot">✦</span>
+    <span>Vastrapur, Ahmedabad</span><span class="ticker-dot">✦</span>
+    <span>New Arrivals In Store</span><span class="ticker-dot">✦</span>
+  </div>
+</div>
 
-  <div class="grid">
-    <div class="card">
-      <img src="images/womens-linen-1.jpg">
-      <div class="label">Women’s Linen Shirts</div>
+<!-- STORE -->
+<div class="storefront" id="store">
+  <div class="sf-img"><img src="images/front1.jpg" alt="Maral Store"></div>
+  <div class="sf-right">
+    <div class="s-label">Est. Ahmedabad</div>
+    <h2 class="s-title" style="color:var(--off-white)">Where Style<br>Meets Quality</h2>
+    <p class="sf-desc">Located in the heart of Vastrapur, Ahmedabad, Maral is your destination for premium 100% cotton garments. Export-quality fashion at the best prices — because looking great shouldn't cost a fortune.</p>
+    <div class="sf-stats">
+      <div><div class="stat-num">100%</div><div class="stat-lbl">Pure Cotton</div></div>
+      <div><div class="stat-num">Export</div><div class="stat-lbl">Quality Grade</div></div>
+      <div><div class="stat-num">Men &amp; Women</div><div class="stat-lbl">Collections</div></div>
     </div>
+    <a href="https://maps.google.com/?q=Maral+Vastrapur+Ahmedabad" target="_blank" class="btn-gold">Get Directions</a>
+  </div>
+</div>
 
-    <div class="card">
-      <img src="images/trousers-1.jpg">
-      <div class="label">Linen Trousers</div>
-    </div>
+<!-- INFO STRIP -->
+<div class="info-strip">
+  <div class="info-block">
+    <div class="info-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+    <div><div class="info-title">Find Us</div><div class="info-text">Vastrapur, Ahmedabad<br>Gujarat, India</div></div>
+  </div>
+  <div class="info-block">
+    <div class="info-icon"><svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+    <div><div class="info-title">Export Quality</div><div class="info-text">Premium grade garments at unbeatable prices</div></div>
+  </div>
+  <div class="info-block">
+    <div class="info-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+    <div><div class="info-title">Store Hours</div><div class="info-text">Mon–Sat: 10am – 9pm<br>Sun: 11am – 8pm</div></div>
+  </div>
+  <div class="info-block">
+    <div class="info-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 9a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.9 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+    <div><div class="info-title">Follow Us</div><div class="info-text">@maral_the_clothing_store<br>Facebook &amp; Instagram</div></div>
+  </div>
+</div>
 
-    <div class="card">
-      <img src="images/mens-shirts-1.jpg">
-      <div class="label">Men’s Linen Shirts</div>
-    </div>
-
-    <div class="card">
-      <img src="images/storefront.jpg">
-      <div class="label">Visit Our Store</div>
-    </div>
+<!-- WOMEN'S PRODUCTS -->
+<section class="section products-section" id="women">
+  <div class="products-header">
+    <div><div class="s-label">Women's Collection</div><h2 class="s-title">For Her</h2></div>
+    <a href="#" class="view-all">View All →</a>
+  </div>
+  <div class="products-grid">
+    <div class="product-card"><div class="product-img"><img src="images/Jink1.png" alt="Floral Midi Dress"><span class="ptag ptag-new">New</span><div class="wish-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="prod-overlay"><button class="overlay-btn">View Details</button></div></div><div class="product-cat">Dresses</div><div class="product-name">Floral Midi Dress</div></div>
+    <div class="product-card"><div class="product-img"><img src="images/Jink2.png" alt="Striped Jumpsuit"><span class="ptag ptag-women">Women</span><div class="wish-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="prod-overlay"><button class="overlay-btn">View Details</button></div></div><div class="product-cat">Jumpsuits</div><div class="product-name">Striped Jumpsuit</div></div>
+    <div class="product-card"><div class="product-img"><img src="images/w1.jpg" alt="Summer Wear"><span class="ptag ptag-new">New</span><div class="wish-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="prod-overlay"><button class="overlay-btn">View Details</button></div></div><div class="product-cat">Summer Wear</div><div class="product-name">Summer Collection</div></div>
+    <div class="product-card"><div class="product-img"><img src="images/w2.jpg" alt="Casual Dress"><span class="ptag ptag-women">Women</span><div class="wish-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="prod-overlay"><button class="overlay-btn">View Details</button></div></div><div class="product-cat">Casual</div><div class="product-name">Casual Dress</div></div>
+    <div class="product-card"><div class="product-img"><img src="images/wpic1.jpg" alt="Women's Pick"><span class="ptag ptag-new">New</span><div class="wish-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="prod-overlay"><button class="overlay-btn">View Details</button></div></div><div class="product-cat">Collection</div><div class="product-name">Women's Pick</div></div>
+    <div class="product-card"><div class="product-img"><img src="images/wpic2.jpg" alt="Women's Style"><span class="ptag ptag-women">Women</span><div class="wish-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="prod-overlay"><button class="overlay-btn">View Details</button></div></div><div class="product-cat">Collection</div><div class="product-name">Women's Style</div></div>
+    <div class="product-card"><div class="product-img"><img src="images/womens-linen-1.jpg.jpg" alt="Linen"><span class="ptag ptag-new">New</span><div class="wish-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="prod-overlay"><button class="overlay-btn">View Details</button></div></div><div class="product-cat">Linen</div><div class="product-name">Linen Collection</div></div>
+    <div class="product-card"><div class="product-img"><img src="images/mod2.png" alt="Printed Dress"><span class="ptag ptag-women">Women</span><div class="wish-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="prod-overlay"><button class="overlay-btn">View Details</button></div></div><div class="product-cat">Dresses</div><div class="product-name">Printed Dress</div></div>
   </div>
 </section>
 
+<!-- MEN'S PRODUCTS -->
+<section class="section products-dark" id="men">
+  <div class="products-header">
+    <div><div class="s-label">Men's Collection</div><h2 class="s-title">For Him</h2></div>
+    <a href="#" class="view-all">View All →</a>
+  </div>
+  <div class="products-grid">
+    <div class="product-card"><div class="product-img"><img src="images/mod1.png" alt="Tropical Shirt"><span class="ptag ptag-men">Men</span><div class="wish-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="prod-overlay"><button class="overlay-btn">View Details</button></div></div><div class="product-cat">Shirts</div><div class="product-name">Tropical Print Shirt</div></div>
+    <div class="product-card"><div class="product-img"><img src="images/mens-shirts-1.jpg.jpg" alt="Men Shirts"><span class="ptag ptag-new">New</span><div class="wish-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="prod-overlay"><button class="overlay-btn">View Details</button></div></div><div class="product-cat">Shirts</div><div class="product-name">Men's Shirts</div></div>
+    <div class="product-card"><div class="product-img"><img src="images/mentommy.jpg" alt="Tommy"><span class="ptag ptag-men">Men</span><div class="wish-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="prod-overlay"><button class="overlay-btn">View Details</button></div></div><div class="product-cat">T-Shirts</div><div class="product-name">Tommy Collection</div></div>
+    <div class="product-card"><div class="product-img"><img src="images/trousers-1.jpg.jpg" alt="Trousers"><span class="ptag ptag-new">New</span><div class="wish-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="prod-overlay"><button class="overlay-btn">View Details</button></div></div><div class="product-cat">Bottoms</div><div class="product-name">Men's Trousers</div></div>
+  </div>
+</section>
+
+<!-- LOOKBOOK -->
+<div class="lookbook" id="lookbook">
+  <div class="lb-item"><img src="images/FrontLive1.png" alt="Lookbook" style="aspect-ratio:4/5"><div class="lb-label">Export Quality Collection</div></div>
+  <div class="lb-stack">
+    <div class="lb-item"><img src="images/storefront.jpg.png" alt="Store"><div class="lb-label">Visit Us in Vastrapur</div></div>
+    <div class="lb-item"><img src="images/PHOTO-2026-03-30-01-55-49.jpg" alt="New Arrivals"><div class="lb-label">New Season Arrivals</div></div>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<div class="gallery-section">
+  <div class="s-label">Our Store &amp; Collection</div>
+  <h2 class="s-title">Maral, Vastrapur</h2>
+  <div class="gallery-grid">
+    <div class="gallery-item"><img src="images/front1.jpg" alt="Store"></div>
+    <div class="gallery-item"><img src="images/PHOTO-2026-03-30-01-55-49.jpg" alt="Collection"></div>
+    <div class="gallery-item"><img src="images/PHOTO-2026-03-30-01-55-51.jpg" alt="Collection"></div>
+    <div class="gallery-item"><img src="images/PHOTO-2026-03-30-01-55-51_3.jpg" alt="Collection"></div>
+    <div class="gallery-item"><img src="images/PHOTO-2026-03-30-01-57-44.jpg" alt="Collection"></div>
+    <div class="gallery-item"><img src="images/PHOTO-2026-03-30-01-59-20.jpg" alt="Collection"></div>
+    <div class="gallery-item"><img src="images/PHOTO-2026-03-30-01-59-21.jpg" alt="Collection"></div>
+    <div class="gallery-item"><img src="images/storefront.jpg.png" alt="Storefront"></div>
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<div class="newsletter" id="contact">
+  <span class="nl-tag">Stay Connected</span>
+  <h2 class="nl-title">New Arrivals Every Week</h2>
+  <p class="nl-sub">Follow us on Facebook &amp; Instagram for the latest drops.</p>
+  <div class="nl-form">
+    <input type="email" class="nl-input" placeholder="Your email address">
+    <button class="nl-btn">Subscribe</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
 <footer>
-  © 2026 Maral · Crafted with Care
+  <div class="footer-top">
+    <div>
+      <span class="f-logo">Maral</span>
+      <p class="f-desc">Best quality, best brands, best price. 100% cotton garments for men &amp; women. Vastrapur, Ahmedabad.</p>
+      <address class="f-address"><strong>Maral — The Clothing Store</strong><br>Vastrapur, Ahmedabad<br>Gujarat, India</address>
+      <div class="f-social">
+        <a href="https://www.facebook.com/p/MARAL-100071251491007/" target="_blank" class="f-social-btn"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/maral_the_clothing_store/" target="_blank" class="f-social-btn"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <div class="f-col-title">Shop</div>
+      <ul class="f-links"><li><a href="#women">Women's Collection</a></li><li><a href="#men">Men's Collection</a></li><li><a href="#lookbook">Lookbook</a></li><li><a href="#">New Arrivals</a></li></ul>
+    </div>
+    <div>
+      <div class="f-col-title">Info</div>
+      <ul class="f-links"><li><a href="#store">About Maral</a></li><li><a href="#store">Store Location</a></li><li><a href="#store">Store Hours</a></li><li><a href="#contact">Contact Us</a></li></ul>
+    </div>
+    <div>
+      <div class="f-col-title">Follow Us</div>
+      <ul class="f-links"><li><a href="https://www.facebook.com/p/MARAL-100071251491007/" target="_blank">Facebook</a></li><li><a href="https://www.instagram.com/maral_the_clothing_store/" target="_blank">Instagram</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="f-copy">&copy; 2026 Maral The Clothing Store, Ahmedabad. All rights reserved.</div>
+    <div class="f-tags"><span class="f-tag">100% Cotton</span><span class="f-tag">Export Quality</span><span class="f-tag">Ahmedabad</span></div>
+  </div>
 </footer>
 
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 80);
+});
+</script>
 </body>
 </html>
