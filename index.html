@@ -4,196 +4,154 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maral — Best Quality Garments</title>
+  <title>Maral — Premium Linen Wear</title>
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    :root {
-      --black: #0f0f0f;
-      --off-white: #f8f5f0;
-      --accent: #c8333a;
-      --accent2: #d4a843;
-      --mid: #7a7368;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'DM Sans', sans-serif;
-      background: var(--off-white);
-      color: var(--black);
-      line-height: 1.6;
+      background: #f8f5f0;
+      color: #0f0f0f;
     }
 
     /* NAV */
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       padding: 1rem 3rem;
+      background: rgba(15,15,15,0.9);
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      background: rgba(15,15,15,0.9);
+      color: white;
       z-index: 100;
     }
-
     nav a {
-      color: #fff;
+      color: white;
       text-decoration: none;
-      letter-spacing: 0.12em;
-    }
-
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      opacity: 0.8;
-    }
-
-    .nav-links a:hover {
-      opacity: 1;
+      letter-spacing: 0.15em;
+      font-size: 0.75rem;
     }
 
     /* HERO */
     .hero {
+      position: relative;
       height: 100vh;
-      background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.45),
-        rgba(0,0,0,0.75)
-      );
+      overflow: hidden;
+    }
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.65));
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      color: #fff;
-      padding: 2rem;
+      color: white;
     }
-
-    .hero h1 {
+    .overlay h1 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(3rem, 7vw, 6rem);
-      margin-bottom: 1rem;
     }
 
-    .hero p {
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      opacity: 0.85;
-      font-size: 0.8rem;
-      margin-bottom: 2rem;
-    }
-
-    .hero .btn {
-      display: inline-block;
-      padding: 0.9rem 2.2rem;
-      background: var(--accent);
-      color: #fff;
-      text-decoration: none;
-      letter-spacing: 0.2em;
-      font-size: 0.7rem;
-    }
-
-    .hero .btn:hover {
-      background: #a82a30;
-    }
-
-    /* SECTION */
+    /* COLLECTION */
     section {
       padding: 5rem 3rem;
     }
-
-    .section-title {
+    h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
-      margin-bottom: 1rem;
-    }
-
-    .section-sub {
-      color: var(--mid);
-      max-width: 600px;
-    }
-
-    /* FOOTER */
-    footer {
-      background: var(--black);
-      color: rgba(255,255,255,0.6);
-      padding: 3rem;
       text-align: center;
-      font-size: 0.75rem;
+      margin-bottom: 3rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      position: relative;
+      overflow: hidden;
+    }
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s;
+    }
+    .card:hover img {
+      transform: scale(1.05);
+    }
+    .label {
+      position: absolute;
+      bottom: 0;
+      background: rgba(15,15,15,0.6);
+      color: white;
+      padding: 1rem;
+      width: 100%;
     }
 
-    @media (max-width: 900px) {
-      nav {
-        padding: 1rem 1.5rem;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      section {
-        padding: 3rem 1.5rem;
-      }
+    footer {
+      background: #0f0f0f;
+      color: #aaa;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.75rem;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a class="nav-logo" href="#">Maral</a>
-    <ul class="nav-links">
-      <li><a href="#">Men</a></li>
-      <li><a href="#">Women</a></li>
-      <li><a href="#">Lookbook</a></li>
-      <li><a href="#">Store</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-  </nav>
+<nav>
+  <strong>Maral</strong>
+  <span>Linen Collections</span>
+</nav>
 
-  <!-- HERO -->
-  <section class="hero">
+<div class="hero">
+  <img src="images/hero.jpg">
+  <div class="overlay">
     <div>
       <h1>Maral</h1>
-      <p>Timeless Garments for Men & Women</p>
-      <a href="#" class="btn">Explore Collection</a>
+      <p>Premium Linen · Men & Women</p>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- ABOUT -->
-  <section>
-    <h2 class="section-title">Crafted with Purpose</h2>
-    <p class="section-sub">
-      Maral blends modern tailoring with timeless design,
-      creating garments that balance elegance, durability,
-      and comfort.
-    </p>
-  </section>
+<section>
+  <h2>Our Collection</h2>
 
-  <!-- FOOTER -->
-  <footer>
-    © 2026 Maral · Designed for GitHub Pages
-  </footer>
+  <div class="grid">
+    <div class="card">
+      <img src="images/womens-linen-1.jpg">
+      <div class="label">Women’s Linen Shirts</div>
+    </div>
+
+    <div class="card">
+      <img src="images/trousers-1.jpg">
+      <div class="label">Linen Trousers</div>
+    </div>
+
+    <div class="card">
+      <img src="images/mens-shirts-1.jpg">
+      <div class="label">Men’s Linen Shirts</div>
+    </div>
+
+    <div class="card">
+      <img src="images/storefront.jpg">
+      <div class="label">Visit Our Store</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Maral · Crafted with Care
+</footer>
 
 </body>
 </html>
